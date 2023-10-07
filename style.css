@@ -20,7 +20,8 @@ body {
 
 .btn {
   display: block;
-  width: 270px;
+  width: 250px;
+  height: 50px;
   background-color: #EB5757;
   color: #FFFFFF;
   font-size: 17px;
@@ -28,8 +29,7 @@ body {
   font-weight: 700;
   border: 2px solid #111111;
   border-radius: 10px;
-  height: 50px;
-  margin: 1.5rem auto;
+  margin: 1.5rem auto 2.5rem auto;
 }
 .btn:hover {
   cursor: pointer;
@@ -54,7 +54,7 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-#some-data-container, #all-data-container {
+#data-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 4rem 0;
@@ -67,7 +67,6 @@ body {
   padding: 1rem;
   width: 90%;
   border-radius: 10px;
-  /* border: 1px solid #9c9c9c; */
   box-shadow: 0 0 5px #9c9c9c;
 }
 .card-info, .card-bottom {
@@ -96,7 +95,7 @@ hr {
 .card-img {
   display: block;
   margin: 0 auto;
-  width: 320px;
+  width: 340px;
   height: 200px;
   border-radius: 10px;
 }
