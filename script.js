@@ -20,6 +20,8 @@ const displayBlogDetails = (id) => {
 
 const displaySomeData = (results) => {
   loaderDiv.style.display = "none";
+  // allDataContainerDiv.style.display = "none";
+
   const arr = [...results];
   const filteredResultsArr = arr.filter(result => {
     return +result.id %2 != 0; 
@@ -30,7 +32,7 @@ const displaySomeData = (results) => {
     `
     <div class="card">
       <div class="card-top">
-        <img class="card-img" src=${filteredResult.image} alt="${filteredResult.name} image couldn't load">
+        <img class="card-img" src=${filteredResult.name == "Jasper Chat" || filteredResult.name == "Replika" ? "https://www.simplilearn.com/ice9/free_resources_article_thumb/Types_of_Artificial_Intelligence.jpg" : filteredResult.image} alt="${filteredResult.name} image couldn't load">
       </div>
       <div class="card-info">
         <h4 class="feature">Features</h4>
@@ -55,7 +57,7 @@ const displaySomeData = (results) => {
   })
   
   seeMoreBtn.addEventListener('click', () => {
-    someDataContainerDiv.innerHTML = '';
+    someDataContainerDiv.style.display = "none";
     displayAllData(results); 
   });
 };
@@ -76,7 +78,7 @@ const displayAllData = (dataArr) => {
     `
     <div class="card">
       <div class="card-top">
-        <img class="card-img" src=${newData.image} alt="${newData.name}">
+      <img class="card-img" src=${newData.name == "Jasper Chat" || newData.name == "Replika" ? "https://www.simplilearn.com/ice9/free_resources_article_thumb/Types_of_Artificial_Intelligence.jpg" : newData.image} alt="${newData.name} image couldn't load">
       </div>
       <div class="card-info">
         <h4 class="feature">Features</h4>
