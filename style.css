@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.3s;
 }
 
 body {
@@ -41,7 +42,24 @@ body {
   border: 2px solid #EB5757;
 }
 
-#container {
+#loader {
+  /* display: none; */
+  margin: 1rem auto;
+  border: 16px solid #111111;
+  border-top: 16px solid #EB5757;
+  border-bottom: 16px solid #EB5757;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#some-data-container, #all-data-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 4rem 0;

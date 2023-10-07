@@ -1,6 +1,8 @@
 
-const containerDiv = document.getElementById("container");
+const someDataContainerDiv = document.getElementById("some-data-container");
+const allDataContainerDiv = document.getElementById("all-data-container");
 const seeMoreBtn = document.getElementById("see-more-btn");
+const loaderDiv = document.getElementById("loader");
 
 const loadData = () => {
   fetch("https://openapi.programming-hero.com/api/ai/tools")
@@ -17,6 +19,7 @@ const displayBlogDetails = (id) => {
 
 
 const displaySomeData = (results) => {
+  loaderDiv.style.display = "none";
   const arr = [...results];
   const filteredResultsArr = arr.filter(result => {
     return +result.id %2 != 0; 
@@ -48,11 +51,14 @@ const displaySomeData = (results) => {
       </div>
       </div>
     `;
-    containerDiv.appendChild(cardsDiv);
+    someDataContainerDiv.appendChild(cardsDiv);
   })
   
-  seeMoreBtn.addEventListener('click', () => displayAllData(results));
-}
+  seeMoreBtn.addEventListener('click', () => {
+    someDataContainerDiv.innerHTML = '';
+    displayAllData(results); 
+  });
+};
 
 // const sortDataOnClick = () => {
 //   console.log("data");
@@ -61,8 +67,7 @@ const displaySomeData = (results) => {
 // sortDataOnClick();
 
 const displayAllData = (dataArr) => {
-  console.log("hi", dataArr);
-  containerDiv.innerHTML = '';
+  // console.log("hi", dataArr);
 
   const newDataArr = [...dataArr]
   newDataArr.map(newData => {
@@ -92,7 +97,7 @@ const displayAllData = (dataArr) => {
       </div>
       </div>
     `;
-    containerDiv.appendChild(cardsDiv);
+    allDataContainerDiv.appendChild(cardsDiv);
   })
   seeMoreBtn.style.display = "none";
 }
