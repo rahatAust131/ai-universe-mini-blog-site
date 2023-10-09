@@ -4,40 +4,41 @@ const seeMoreBtn = document.getElementById("see-more-btn");
 const loaderDiv = document.getElementById("loader");
 const sortByDateBtn = document.getElementById("sort-by-date-btn");
 const modalDiv = document.getElementsByClassName("modal")[0];
+let dataState = '';
 
 sortByDateBtn.style.display = "none";
 seeMoreBtn.style.display = "none";
+loaderDiv.style.display = "block";
 
 const loadData = () => {
   fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then(res => res.json())
     .then(data => passDataInAllFunction(data.data.tools))
-};
 
-loadData();
+  };
+  
+  loadData();
+  
+  const passDataInAllFunction = (dataArr) => {
+    const newDataArr = [...dataArr];
+    displaySomeData(newDataArr);
 
-const passDataInAllFunction = (dataArr) => {
-  const newDataArr = [...dataArr];
-  displaySomeData(newDataArr);
-  sortByDateBtn.style.display = "block";
-  seeMoreBtn.style.display = "block";
+    loaderDiv.style.display = "none";
+    sortByDateBtn.style.display = "block";
+    seeMoreBtn.style.display = "block";
 };
 
 const loadBlogDetails = (id) => {
-  loaderDiv.style.display = "block";
-
   let newId = +(id);
   if (newId < 10) {
     newId = "0" + newId;
   }
-
   fetch(`https://openapi.programming-hero.com/api/ai/tool/${newId}`)
   .then(res => res.json())
   .then(data => displayBlogDetails(data.data))
 };
 
 const displayBlogDetails = (data) => {
-  loaderDiv.style.display = "none";
   console.log(data);
 
   modalDiv.style.display = "block";
@@ -78,7 +79,7 @@ const displayBlogDetails = (data) => {
       </div>
       <div class="right">
         <div class="top">
-        <img src=${data.image_link[0]} alt="" />
+        <img class="card-img" src=${data.id == "06" || data.id == "11" ? "https://www.simplilearn.com/ice9/free_resources_article_thumb/Types_of_Artificial_Intelligence.jpg" : data.image_link[0]} alt="${data.name} image couldn't load">
         </div>
         <div class="bottom">
         <h4>${data.input_output_examples[0].input}</h4>
@@ -96,6 +97,7 @@ const displayBlogDetails = (data) => {
 
 
 const displaySomeData = (results) => {
+  dataState = 'some'
   loaderDiv.style.display = "none";
   // dataContainerDiv.style.display = "none";
 
@@ -145,20 +147,16 @@ const displaySomeData = (results) => {
 
 const sortDataOnClick = (data) => {
   dataContainerDiv.innerHTML = "";
-  if (data) {
+  if (dataState === 'some') {
     data.sort((a, b) => a.published_in - b.published_in);
-    data.isSorted = true;
-  }
-  if (data.isSorted) {
-    displayAllData(data)
+    displaySomeSortedData(data);
   } else {
-    if (alert("already sorted!")) {
-      displaySomeData(data);
-    }
+    displayAllSortedData(data);
   }
-}
+};
 
 const displayAllData = (dataArr) => {
+  dataState = 'all'
   const newDataArr = [...dataArr]
   newDataArr.map(newData => {
     const cardsDiv = document.createElement("div");
@@ -166,7 +164,78 @@ const displayAllData = (dataArr) => {
       `
     <div class="card">
       <div class="card-top">
-      <img class="card-img" src=${newData.name == "Jasper Chat" || newData.name == "Replika" ? "https://www.simplilearn.com/ice9/free_resources_article_thumb/Types_of_Artificial_Intelligence.jpg" : newData.image} alt="${newData.name} image couldn't load">
+      <img class="card-img" src=${newData.id == "06" || newData.id == "11" ? "https://www.simplilearn.com/ice9/free_resources_article_thumb/Types_of_Artificial_Intelligence.jpg" : newData.image} alt="${newData.name} image couldn't load">
+      </div>
+      <div class="card-info">
+        <h4 class="feature">Features</h4>
+        <ol>
+        <li>${newData.features[0]}</li>
+        <li>${newData.features[1]}</li>
+        <li>${newData.features[2]}</li>
+        </ol>
+      </div>
+      <hr>
+      <div class="card-bottom">
+        <div class="left">
+          <h3 class="card-title">${newData.name}</h3>
+          <p class="card-publish-date"><i class="fa-regular fa-calendar"></i> ${newData.published_in}</p>
+        </div>
+        <div onclick="loadBlogDetails(${newData.id})" class="right">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+    `;
+    dataContainerDiv.appendChild(cardsDiv);
+  })
+  seeMoreBtn.style.display = "none";
+}
+
+const displaySomeSortedData = (data) => {
+  const newDataArr = [...data];
+  newDataArr.map(newData => {
+    const cardsDiv = document.createElement("div");
+    cardsDiv.innerHTML =
+      `
+    <div class="card">
+      <div class="card-top">
+      <img class="card-img" src=${newData.id == "06" || newData.id == "11" ? "https://www.simplilearn.com/ice9/free_resources_article_thumb/Types_of_Artificial_Intelligence.jpg" : newData.image} alt="${newData.name} image couldn't load">
+      </div>
+      <div class="card-info">
+        <h4 class="feature">Features</h4>
+        <ol>
+        <li>${newData.features[0]}</li>
+        <li>${newData.features[1]}</li>
+        <li>${newData.features[2]}</li>
+        </ol>
+      </div>
+      <hr>
+      <div class="card-bottom">
+        <div class="left">
+          <h3 class="card-title">${newData.name}</h3>
+          <p class="card-publish-date"><i class="fa-regular fa-calendar"></i> ${newData.published_in}</p>
+        </div>
+        <div onclick="loadBlogDetails(${newData.id})" class="right">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+    `;
+    dataContainerDiv.appendChild(cardsDiv);
+  })
+  seeMoreBtn.style.display = "none";
+
+}
+
+const displayAllSortedData = data => {
+  const newDataArr = [...data];
+  newDataArr.map(newData => {
+    const cardsDiv = document.createElement("div");
+    cardsDiv.innerHTML =
+      `
+    <div class="card">
+      <div class="card-top">
+      <img class="card-img" src=${newData.id == "06" || newData.id == "11" ? "https://www.simplilearn.com/ice9/free_resources_article_thumb/Types_of_Artificial_Intelligence.jpg" : newData.image} alt="${newData.name} image couldn't load">
       </div>
       <div class="card-info">
         <h4 class="feature">Features</h4>

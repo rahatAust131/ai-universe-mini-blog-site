@@ -40,6 +40,7 @@ body {
 }
 
 #loader {
+  display: none;
   margin: 1rem auto;
   border: 16px solid #111111;
   border-top: 16px solid #EB5757;
