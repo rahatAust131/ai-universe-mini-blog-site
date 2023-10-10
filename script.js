@@ -101,7 +101,7 @@ const displaySomeData = (results) => {
   loaderDiv.style.display = "none";
   // dataContainerDiv.style.display = "none";
 
-  const filteredResultsArr = results.filter(result => +result.id % 2 != 0);
+  const filteredResultsArr = results.filter(result => +result.id > 4);
 
   filteredResultsArr.forEach(filteredResult => {
     const cardsDiv = document.createElement("div")
