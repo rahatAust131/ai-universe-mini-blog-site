@@ -85,7 +85,6 @@ const loadBlogDetails = (id) => {
 };
 
 const displayBlogDetails = (data) => {
-
   modalDiv.style.display = "block";
   const modalContentDiv = document.getElementsByClassName("modal-content")[0];
 
@@ -135,7 +134,7 @@ const displayBlogDetails = (data) => {
   const closeModalBtn = document.getElementsByClassName("close")[0];
   closeModalBtn.addEventListener("click", () => {
     modalDiv.style.display = "none";
-  })
+  });
 };
 
 
