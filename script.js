@@ -102,7 +102,7 @@ const displayBlogDetails = (data) => {
         </div>
         <div class="features-and-integrations">
           <div class="features">
-          <h3>Features</h3>
+          <h4>Features</h4>
             <ul>
               <li>${data.features[1].feature_name}</li>
               <li>${data.features[2].feature_name}</li>
@@ -110,7 +110,7 @@ const displayBlogDetails = (data) => {
             </ul>
           </div>
           <div class="integration">
-          <h3>Integrations</h3>
+          <h4>Integrations</h4>
           <ul>
           <li>${data.integrations[0]}</li>
           <li>${data.integrations[1]}</li>

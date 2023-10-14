@@ -285,7 +285,7 @@ body {
 
 
 /* For laptop or tablet devices */
-@media screen and (min-width: 426px) and (max-width: 1024px) {
+@media screen and (min-width: 729px) and (max-width: 1024px) {
   
   .title {
     margin: 1rem 0;
@@ -531,6 +531,267 @@ body {
   }
 }
 
+/* For laptop or tablet devices */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  
+  .title {
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+  }
+  
+  .btn {
+    display: block;
+    width: 180px;
+    height: 40px;
+    background-color: #EB5757;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    border: 2px solid #111111;
+    border-radius: 10px;
+    margin: 1rem auto 2.5rem auto;
+  }
+  
+  .btn:hover {
+    cursor: pointer;
+    background-color: #111111;
+    color: #FFFFFF;
+    border: 2px solid #EB5757;
+  }
+  
+  #data-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.75rem;
+    margin: 0 2rem 2.75rem 0;
+    padding: 0.25rem 0 0.25rem 2rem;
+  }
+  
+  .card {
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #9c9c9c;
+    height: 245px;
+  }
+  
+  .card-info,
+  .card-bottom {
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .card-info li {
+    margin-left: 22px;
+    font-size: 11px;
+    color: #585858;
+  }
+  
+  .feature {
+    text-shadow: 0 2.5px 2.5px #585858;
+    margin: 0.25rem;
+  }
+  
+  .card-title {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+  }
+  
+  hr {
+    border: 1px solid #9c9c9c;
+    width: 85%;
+    margin: 3px 0 0 9px;
+  }
+  
+  .card-img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+  }
+  
+  .card-img:hover {
+    cursor: pointer;
+    border: 1px solid salmon;
+  }
+  
+  .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-bottom .left {
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .card-bottom .right {
+    color: #EB5757;
+    padding: 0 5px;
+    font-weight: 900;
+    margin: 0 5px 0 0;
+  }
+  
+  .card-publish-date {
+    font-size: 11px;
+    color: #585858;
+  }
+  
+  .card-bottom .right:hover {
+    cursor: pointer;
+    font-size: 19px;
+  }
+  
+  #see-more-btn {
+    margin: 2rem auto;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    margin: 5% auto;
+    padding: 5% 3%;
+    width: 95%;
+    height: 55%;
+  }
+  
+  .modal-content .close {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #EB5757;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .modal-content .close:hover {
+    cursor: pointer;
+    color: #DD0000;
+    font-size: 4.25rem;
+  }
+  
+  .modal-content .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content .content .left h3 {
+    text-align: justify;
+    font-size: 16px;
+    padding: 0.75rem;
+  }
+  
+  .modal-content .content .left,
+  .modal-content .content .right {
+    width: 47%;
+    margin: 0 0.75rem;
+    border-radius: 13px;
+    height: 300px;
+    box-shadow: 0 0 2px #585858
+  }
+
+  .modal-content .content .content-subscription,
+  .modal-content .content .features-and-integrations {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .modal-content .content .content-subscription {
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .content-subscription .sub1 {
+    color: #03A30A;
+  }
+  
+  .content-subscription .sub2 {
+    color: #F28927;
+  }
+  
+  .content-subscription .sub3 {
+    color: #EB5757;
+    font-size: 12px;
+  }
+  
+  .content-subscription .sub1,
+  .content-subscription .sub2,
+  .content-subscription .sub3 {
+    padding: 0.25rem;
+    text-align: center;
+    box-shadow: 0 0 3px #111111;
+    border-radius: 5px;
+    width: 27%;
+    margin: 0.5rem auto;
+    height: 50px;
+  }
+  
+  .features-and-integrations {
+    margin: 0.5rem 0.25rem;
+    padding: 0.5rem 0.25rem;
+  }
+
+  .features-and-integrations .features h4, 
+  .features-and-integrations .integration h4 {
+    margin: 0.25rem 0;
+    padding: 0.5rem 0;
+  }
+
+  .features-and-integrations .features ul>li,  
+  .features-and-integrations .integration ul>li {
+    font-size: 9px;
+    margin: 0 1.25rem;
+  }
+
+  .modal-content .content .left {
+    background: rgba(235, 87, 87, 0.05);
+  }
+  .modal-content .content .right {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1rem;
+  }
+  .modal-content .content .right .top img {
+    display: block;
+    width: 100%;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  .modal-content .content .right .bottom {
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+  .modal-content .content .right .bottom p {
+    font-size: 10px;
+    margin: 0.5rem 0;
+    padding: 0 0.5rem;
+  }
+  .modal-content .content .right .bottom h4 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0.25rem 0;
+  }
+
+}
+
 
 /* For mobile devices */
 @media screen and (min-width: 320px) and (max-width: 425px) {  
@@ -751,8 +1012,4 @@ body {
     height: 75px;
   }
   
-  .features-and-integrations ul>li {
-    font-size: 12px;
-    margin: 0 3.25rem;
-  }
 }
