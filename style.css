@@ -171,7 +171,7 @@ body {
     margin: 5% auto;
     padding: 2%;
     width: 85%;
-    height: 65%;
+    height: 75%;
     background-color: #fff6f6;
     box-shadow: 0 0 5px #EB5757;
     border-radius: 15px;
@@ -199,8 +199,9 @@ body {
   }
   
   .modal-content .content .left h3 {
-    margin: 0.125rem 0.5rem;
-    padding: 0.75rem;
+    margin: 0.5rem 0;
+    padding: 1.25rem;
+    text-align: center;
   }
   
   .modal-content .content .left,
@@ -209,10 +210,11 @@ body {
     height: 450px;
     border-radius: 15px;
     margin: 0 1rem;
-    border: 1px solid black;
+    box-shadow: 0 0 2px #585858;
   }
   .modal-content .content .left {
     background: rgba(235, 87, 87, 0.05);
+    padding: 2rem 0.25rem 0.75rem 0.25rem;
   }
   .modal-content .content .right {
     background: rgba(255, 255, 255, 0.5);
@@ -230,7 +232,7 @@ body {
     padding: 1rem 0;
   }
   .modal-content .content .right .bottom p {
-    font-size: 15px;
+    font-size: 13px;
     margin: 0.5rem 0.75rem;
     padding: 0 2rem;
   }
@@ -251,35 +253,48 @@ body {
   .modal-content .content .content-subscription {
     margin: 1rem 2rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 17px;
     font-family: 'Times New Roman', Times, serif;
   }
   
+  .content-subscription .sub1,
+  .content-subscription .sub2,
+  .content-subscription .sub3 {
+    padding: 0.25rem 1.5rem;
+    background-color: #fff6f6;
+    border-radius: 5px;
+    width: 25%;
+    height: 80px;
+  }
+
   .content-subscription .sub1 {
     color: #03A30A;
+    padding: 1.75rem 1.5rem;
   }
   
   .content-subscription .sub2 {
     color: #F28927;
+    padding: 1.5rem 1rem;
   }
   
   .content-subscription .sub3 {
     color: #EB5757;
   }
   
-  .content-subscription .sub1,
-  .content-subscription .sub2,
-  .content-subscription .sub3 {
-    padding: 1.25rem;
-    background-color: #fff6f6;
-    border-radius: 5px;
-    width: 30%;
-    height: 75px;
+  .features-and-integrations {
+    margin: 0.5rem 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
-  
+
+  .features-and-integrations .features h4, 
+  .features-and-integrations .integration h4 {
+    margin: 0.5rem 0;
+    padding: 0.25rem 0;
+  }
+
   .features-and-integrations ul>li {
     font-size: 12px;
-    margin: 0 3.25rem;
+    margin: 0 2.25rem;
   }
 }
 
@@ -531,7 +546,7 @@ body {
   }
 }
 
-/* For laptop or tablet devices */
+/* For Large Mobile or tablet devices */
 @media screen and (min-width: 426px) and (max-width: 768px) {
   
   .title {
@@ -664,51 +679,57 @@ body {
   
   .modal-content {
     margin: 5% auto;
-    padding: 5% 3%;
+    padding: 3%;
     width: 95%;
-    height: 55%;
+    height: 80%;
+    background-color: #fff6f6;
+    box-shadow: 0 0 5px #EB5757;
+    border-radius: 9px;
   }
   
   .modal-content .close {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #EB5757;
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 25px;
+    right: 20px;
   }
   
   .modal-content .close:hover {
     cursor: pointer;
     color: #DD0000;
-    font-size: 4.25rem;
+    font-size: 3.25rem;
   }
   
   .modal-content .content {
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
   }
   
   .modal-content .content .left h3 {
-    text-align: justify;
-    font-size: 16px;
+    text-align: center;
+    font-size: 18px;
     padding: 0.75rem;
   }
   
   .modal-content .content .left,
   .modal-content .content .right {
-    width: 47%;
-    margin: 0 0.75rem;
+    border: 1px solid red;
+    width: 95%;
+    margin: 0.5rem 0;
     border-radius: 13px;
-    height: 300px;
+    height: 255px;
     box-shadow: 0 0 2px #585858
   }
 
   .modal-content .content .content-subscription,
   .modal-content .content .features-and-integrations {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: 'Roboto', sans-serif;
   }
@@ -717,6 +738,7 @@ body {
     text-align: center;
     font-size: 13px;
     font-family: 'Times New Roman', Times, serif;
+    margin: 0 1rem;
   }
   
   .content-subscription .sub1 {
@@ -739,20 +761,20 @@ body {
     text-align: center;
     box-shadow: 0 0 3px #111111;
     border-radius: 5px;
-    width: 27%;
-    margin: 0.5rem auto;
-    height: 50px;
+    width: 23%;
+    margin: 0.25rem auto;
+    height: 45px;
   }
   
   .features-and-integrations {
-    margin: 0.5rem 0.25rem;
-    padding: 0.5rem 0.25rem;
+    margin: 0.25rem 2rem;
+    padding: 0.5rem 0;
   }
 
   .features-and-integrations .features h4, 
   .features-and-integrations .integration h4 {
-    margin: 0.25rem 0;
-    padding: 0.5rem 0;
+    margin: 0;
+    padding: 0.25rem 0;
   }
 
   .features-and-integrations .features ul>li,  
@@ -762,6 +784,7 @@ body {
   }
 
   .modal-content .content .left {
+    padding: 1.75rem;
     background: rgba(235, 87, 87, 0.05);
   }
   .modal-content .content .right {
@@ -771,7 +794,7 @@ body {
   .modal-content .content .right .top img {
     display: block;
     width: 100%;
-    height: 120px;
+    height: 150px;
     margin: 0 auto;
     border-radius: 10px;
   }
